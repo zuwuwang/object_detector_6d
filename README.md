@@ -18,19 +18,21 @@ The source code is tested on Ubuntu 14.04. Below are all the required dependenci
 * GFlags
 * OpenMP
 * Boost
-* OpenCV (2.4.10)
+* OpenCV (2.4.10,or you can change CMakeList.txt to point to your own opencv version,if you also use opencv 2.4.X)
 * PCL
 * VTK (5.10)
-* CUDA
+* CUDA 8.0
+* cudnn 5.0
 * LMDB
 * Protobuf
-* Caffe (1.7)
+* Caffe (1 or master)
 
 When you have installed all the required libraries, build the project running the following commands:
 ```bash
+cd object_detector_6d
 mkdir build
 cd build
-cmake ..
+cmake .. -DCaffe_INCLUDE_DIR=/your/path/to/caffe/include  -DCaffe_LIBS=/your/path/to/caffe/build/lib/libcaffe.so
 make
 ```
 If no error was generated, two binaries should have been created: **PatchGen** and **HoughForest**. 
