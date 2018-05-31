@@ -31,9 +31,11 @@ file(GLOB INCLUDE_LIST
 "./HoughForest/include/*.hpp"
 "./HoughForest/include/cuda/*.h")
 
+#check you cuda compute ability,mine is nvidia GTX 745M,compute_30
 set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS}
-    -gencode arch=compute_35,code=sm_35
-    -gencode arch=compute_50,code=sm_50
+    -gencode arch=compute_30,code=sm_30
+    #-gencode arch=compute_35,code=sm_35
+    #-gencode arch=compute_50,code=sm_50
 )
 
 include_directories(
